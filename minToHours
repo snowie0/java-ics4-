@@ -1,0 +1,26 @@
+/* May 14, 2021
+Converts the minutes into hours and minutes.
+*/
+
+import java.util.*;
+import java.text.NumberFormat;
+
+public class Main {
+  public static void main(String[] args) {
+
+    int time, hours, min; //declaring 
+
+    Scanner input = new Scanner(System.in);
+
+    System.out.print("Please enter the time in minutes: "); //displaying instructions for input
+    time = input.nextInt(); //asking for time (input) 
+    input.close();
+
+    hours = time/60; //calculation hour in minutes
+    min = time%60; //finding remaining minutes
+
+    System.out.print("The time is: " +hours+ ":");
+    System.out.format("%02d", min); //using %02d to have 2 decimal places for minutes.
+
+  }
+}
