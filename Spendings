@@ -1,0 +1,82 @@
+/*May 15, 2021
+Spending.java
+Finds the % of money spent in each category from the input given from each category. 
+*/
+
+import java.util.*;
+import java.text.NumberFormat;
+
+public class Main {
+  public static void main(String[] args) {
+
+    double food, cloth, ent, rent;
+    double total, rate;
+    
+    Scanner input = new Scanner(System.in);
+    
+    System.out.println("Enter the amount spend on the following items: \n");
+
+    System.out.print("Food: $"); //taking inputs
+    food = input.nextDouble();
+
+    System.out.print("Clothing: $");
+    cloth = input.nextDouble();
+
+    System.out.print("Entertainment: $");
+    ent = input.nextDouble();
+
+    System.out.print("Rent: $");
+    rent = input.nextDouble();
+    System.out.println(""); //just a new line for clearity (visuals)
+
+  
+    total = food + cloth + ent + rent; //finding total amount spent
+    rate = total/100;  //finding the rate of of money spent with % 
+
+    food /= rate; //dividing with rate so it can be converted as %
+    cloth /= rate;
+    ent /= rate;
+    rent /= rate;
+    
+    NumberFormat percent = NumberFormat.getPercentInstance();
+
+    System.out.format("%-8s %16s", "Category", "Budget\n"); //formating the chart for category and budget
+    
+//   first way to display:
+
+    System.out.format("%-8s %15\n", "Food:", percent.format(food)); //displaying the food category and the % it spend with
+    System.out.format("%-8s %14s \n","Clothing:", percent.format(cloth));
+    System.out.format("%-8s %9s\n", "Entertainment:",percent.format(ent));
+    System.out.format("%-8s %15s\n","Rent:",percent.format(rent));
+
+
+    System.out.format("%.2f", food); //this should be in the same statement above. (And it needs to be done for each category to have an output 12.50% instead of 1,250%.) 
+
+
+/* The code above works but it doesnt shows the number with 2 decimals  or in (%.2f) format, and I could not use both position and decimal formats in one statements so I made another code which meets with the requirements but it doesnt look professional and not uses what we learned with formatting. I just made it so the program can work better like expected.
+*/
+
+//    the second way to display:  
+/*(please delete the comment before and after the code also comment the first way part so it will look better, if you like to see the second way, thanks.) */
+
+/*
+    System.out.print("Food:             ");
+    System.out.format("%.2f", food);
+    System.out.print("%\n");
+
+    System.out.print("Clothing:         ");
+    System.out.format("%.2f", cloth);
+    System.out.print("%\n");
+
+    System.out.print("Entertainment:    ");
+    System.out.format("%.2f", ent);
+    System.out.print("%\n");
+
+    System.out.print("Rent:             ");
+    System.out.format("%.2f", rent);
+    System.out.print("%\n");
+
+*/
+
+  }
+}
