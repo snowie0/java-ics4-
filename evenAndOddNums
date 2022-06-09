@@ -1,0 +1,43 @@
+/*Jun 25, 2021
+Makes 2 list of even and odd numers from random generation.
+*/
+
+import java.util.*;
+
+class Main {
+  public static void main(String[] args) {
+
+    int count = 0; 
+		ArrayList evenString = new ArrayList(); //array list for even numbers 
+    ArrayList oddString = new ArrayList(); // array list for odd numbers
+
+
+    while(count<25){
+
+      Random r = new Random();
+      int random = r.nextInt(100); //generating random number 0-99
+      count += 1; //increasing count so it won't be infinite loop
+
+      if(random % 2 == 0) { //checks if its even
+        evenString.add(random); //adds to even array list      
+      }
+
+      else if(random % 2 != 0) { //checks if random number is odd
+        oddString.add(random); //add to odd array list
+      }
+    }
+
+    System.out.println("\nODD: "); //displaying odd title
+    for(Object name : oddString){
+      System.out.print(name); //displaying array list
+      System.out.print(" "); //spaces between numbers
+    }
+
+    System.out.println("\n\nEVEN: "); //displaying even title
+    for(Object name : evenString){
+      System.out.print(name); //displaying array list
+      System.out.print(" ");//spaces between numbers
+    }
+    
+  }
+}
